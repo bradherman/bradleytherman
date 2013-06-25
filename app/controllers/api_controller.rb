@@ -52,9 +52,9 @@ class ApiController < ApplicationController
         ]
       },
       resume:   nil,
-      links:    nil,
-      projects: nil,
-      posts:    nil
+      links:    [],
+      projects: [],
+      posts:    []]
     }
   end
 end
