@@ -30,6 +30,10 @@ class ApiController < ApplicationController
         ],
         social: [
           {
+            type: 'github',
+            href: 'http://www.github.com/bradherman'
+          },
+          {
             type: 'facebook',
             href: 'http://www.facebook.com/bradleyherman'
           },
@@ -47,9 +51,10 @@ class ApiController < ApplicationController
           }
         ]
       },
-      resume:   'coming soon',
-      links:    'coming soon',
-      projects: 'coming soon'
+      resume:   nil,
+      links:    nil,
+      projects: nil,
+      posts:    nil
     }
   end
 end
