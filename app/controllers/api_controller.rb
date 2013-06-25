@@ -54,7 +54,7 @@ class ApiController < ApplicationController
       resume:   nil,
       links:    [],
       projects: [],
-      posts:    []]
+      posts:    []
     }
   end
 end
