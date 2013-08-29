@@ -7,6 +7,16 @@
   <script>
     hljs.tabReplace = '    ';
     hljs.initHighlightingOnLoad();
+
+    window.onload = function(){
+      function urlify(text) {
+        var urlRegex = /(https?:\/\/[^\s]+)/g;
+        return text.replace(urlRegex, function(url) {
+          return '<a href="' + url + '' + url + '</a>';
+        })
+      }
+      document.body.innerHTML = urlify(document.body.innerHTML);
+    }
   </script>
   <%= stylesheet_link_tag "application", media: "all" %>
   <%= csrf_meta_tags %>
