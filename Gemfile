@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 
-ruby "2.0.0"
+ruby "2.1.2"
 
-gem 'rails', '4.0.0.rc2'
+gem 'rails', '4.1.4'
 gem 'pg'
-gem 'jbuilder', '~> 1.0.1'
+gem 'jbuilder'
+gem 'dotiw'
 
 group :doc do
   gem 'sdoc', require: false

@@ -1,23 +1,44 @@
 class MeBuilder
+  attr_accessor :age
+
+  def initialize(age)
+    @age = age
+  end
+
   def build
     {
       meta: {
         self: 'http://www.bradleytherman.com'
       },
-      version:      '0.0.1',
+      version:      '0.0.2',
       source:       'http://github.com/bradherman/bradleytherman',
       name:         'Bradley Thomas Herman',
-      description:  'I\'m moderately awesome.',
-      age:          27,
+      description:  TAGLINES.sample,
+      age:          age,
       contact: {
-        email: {
-          username: 'bradley.t.herman',
-          provider: 'gmail.com'
-        },
+        email: [
+          {
+            username: 'bradley.t.herman',
+            provider: 'gmail.com'  
+          },
+          {
+            username: 'bherman',
+            provider: 'bleacherreport.com'
+          },
+          {
+            username: 'carinishead',
+            provider: 'gmail.com'
+          }
+        ],
         chat: [
           {
             type:     'google talk',
             name:     'bradley.t.herman',
+            provider: 'gmail.com'
+          },
+          {
+            type:     'google talk',
+            name:     'carinishead',
             provider: 'gmail.com'
           },
           {
@@ -29,6 +50,10 @@ class MeBuilder
             type:     'aim',
             name:     'carinishead',
             provider: nil
+          },
+          {
+            type:     'yahoo',
+            name:     'thehelpingphriendlybook'
           }
         ],
         social: [
