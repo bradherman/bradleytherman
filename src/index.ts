@@ -45,7 +45,7 @@ export default {
 						<body style="width: 100%; height: 100%;">
 						<pre class="theme-github-dark"><span class="hljs"><code class="language-json">
 ${
-	hljs.highlight(JSON.stringify(base, null, 2), { language: "json" }).value
+	hljs.highlight(JSON.stringify(base(new Date()), null, 2), { language: "json" }).value
 }</code></span></pre>
 						</body>
 						</html>`,
@@ -63,7 +63,7 @@ ${
 				request.headers.get("accept")?.includes("application/json"))
 		) {
 			return new Response(
-				JSON.stringify(base, null, 2),
+				JSON.stringify(base(new Date()), null, 2),
 				{
 					headers: {
 						"content-type": "application/json",

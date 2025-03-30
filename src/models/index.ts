@@ -7,7 +7,9 @@ import {
 	projects,
 	socials,
 	websites,
+	work,
 } from "./all";
+import type { Info } from "./personalInfo";
 
 export interface Meta {
 	self: string;
@@ -16,7 +18,8 @@ export interface Meta {
 }
 
 export interface ResumeData {
-	personalInfo: typeof personalInfo;
+	personalInfo: Info;
+	work: typeof work;
 	socials: typeof socials;
 	contacts: typeof contacts;
 	websites: typeof websites;
@@ -26,23 +29,26 @@ export interface ResumeData {
 	hobbies: typeof hobbies;
 }
 
-export const base: {
-	meta: Meta,
-	data: ResumeData
-} = {
-	meta: {
-		self: "http://www.bradleytherman.com",
-		version: "0.0.1",
-		source: "https://github.com/bradherman/bradleytherman",
-	},
-	data: {
-		personalInfo,
-		socials,
-		contacts,
-		websites,
-		education,
-		investments,
-		projects,
-		hobbies,
-	},
-};
+export function base(today: Date): {
+	meta: Meta;
+	data: ResumeData;
+} {
+	return {
+		meta: {
+			self: "http://www.bradleytherman.com",
+			version: "0.0.1",
+			source: "https://github.com/bradherman/bradleytherman",
+		},
+		data: {
+			personalInfo: personalInfo(today),
+			work,
+			socials,
+			contacts,
+			websites,
+			education,
+			investments,
+			projects,
+			hobbies,
+		},
+	};
+}

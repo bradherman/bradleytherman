@@ -4,8 +4,18 @@ export interface Info {
 	location: string;
 }
 
-export const personalInfo: Info = {
-	name: "Bradley Thomas Herman",
-	age: new Date().getFullYear() - new Date("1986-05-06").getFullYear(),
-	location: "South Lake Tahoe, CA",
-};
+function _calculateAge(today: Date) {
+	// birthday is a date
+	const birthday = new Date("1986-05-06");
+	const ageDifMs = today.getTime() - birthday.getTime();
+	const ageDate = new Date(ageDifMs); // miliseconds from epoch
+	return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
+
+export function personalInfo(today: Date): Info {
+	return {
+		name: "Bradley Thomas Herman",
+		age: _calculateAge(today),
+		location: "South Lake Tahoe, CA",
+	};
+}
